@@ -31,6 +31,10 @@ var header = document.querySelector("h1")
 var startBtn = document.getElementById("start-quiz")
 var startPage = document.getElementById("start-page")
 var body = document.body
+var timerEl = document.getElementById("time-remaining")
+
+var secondsLeft = 90
+var timer
 
 var questionCount = 1
 
@@ -56,7 +60,10 @@ var questionCount = 1
 function startGame(){
     console.log("Game started")
     startPage.style.display = "none"
-    header.innerText = ""
+    header.innerText = "."
+    header.style.color = "lightpink"
+    header.style.cursor = "default"
+    timer = setInterval(tick, 1000)
     //build the question
     var question = "Which of the following is not a primitive data type in JS?"
     var options = ["boolean", "float", "symbol", "undefined"]
@@ -100,6 +107,14 @@ function addAnswer(answer, answerClass){
     parent.appendChild(answerOption)
 }
     
+function tick(){
+    secondsLeft--
+    timerEl.innerText = secondsLeft
+    console.log(secondsLeft)
+    if (secondsLeft === 0){
+        clearInterval(timer)
+    }
+}
 
 
 startBtn.addEventListener("click", startGame)
