@@ -21,7 +21,7 @@ h4 {
 
 a {
     position: absolute;
-    top: -130px;
+    top: 0px;
     left: 20px;
 }
 
@@ -65,10 +65,11 @@ li {
 .four::before {
     content: "D.  ";
 }
+
 #timer {
     font-size: 150%;
     position: absolute;
-    top: -130px;
+    top: 0px;
     right: 20px;
 }
 

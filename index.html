@@ -9,29 +9,32 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head> 
 <body>
-    <h1 class="centered"><!--Welcome to the JavaScript Quiz!--></h1>
+    <!--Welcome to the JavaScript Quiz!-->
+    <h1 class="centered">Welcome to the JavaScript Quiz!</h1>
     <a href="high-scores.html">see high scores</a>
     <p id="timer">Time left: <span id="time-remaining">90</span></p>
-    <!-- <div id="instructionsDiv">
-        <p class="centered" id="instructionsLabel">Instructions: </p>
-        <p class="centered" id="instructions">Welcome to the JavaScript Quiz! This quiz consists of 10 questions testing you on various JavaScript topics, such as variables and functions. Once the quiz starts, you will have 90 seconds to complete it. Incorrect answeres will deduct time from the timer! Once you finish the quiz, the remaining time is your score. If the timer runs out, you fail the quiz! If you succeed, you will be able to submit a high score. Once you're ready, push the button below to start the quiz!
-        </p>
+    <div id="start-page">
+        <div id="instructionsDiv">
+            <p class="centered" id="instructionsLabel">Instructions: </p>
+            <p class="centered" id="instructions">Welcome to the JavaScript Quiz! This quiz consists of 10 questions testing you on various JavaScript topics, such as variables and functions. Once the quiz starts, you will have 90 seconds to complete it. Incorrect answeres will deduct time from the timer! Once you finish the quiz, the remaining time is your score. If the timer runs out, you fail the quiz! If you succeed, you will be able to submit a high score. Once you're ready, push the button below to start the quiz!
+            </p>
+        </div>
+        <p class="centered"id="quiz-over">quiz over</p>
+        <p class="centered" id="score">score: 20</p>
+        <div class="container">
+            <button type="button" id="start-quiz">Start Quiz!</button>
+        </div>
     </div>
-    <p class="centered"id="quiz-over">quiz over</p>
-    <p class="centered" id="score">score: 20</p>
-    <div class="container">
-        <button type="button" id="start-quiz">Start Quiz!</button>
-    </div> -->
-    <div class="question-container">
-        <h3 id="questionCount">Question <span>1</span>/10</h3>
-        <h4 id=question>Which of the following is not a primitive data type in JS?</h4>
-        <ol type="A" id="answers">
+    <!-- <div class="question-container">
+        <h3 id="question-count">Question <span>1</span>/10</h3>
+        <h4 id="question">Which of the following is not a primitive data type in JS?</h4>
+        <ol id="answers">
             <li class="one">boolean</li>
             <li class="two">symbol</li>
             <li class="three">float</li>
             <li class="four">undefined</li>
         </ol>
-    </div>
+    </div> -->
 
 
     <script src="assets/javascript/script.js"></script>

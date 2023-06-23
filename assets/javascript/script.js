@@ -16,20 +16,93 @@
   
 // localStorage.setItem("questions", JSON.stringify([]))
 
-function buildQuestion(prompt, randomize, possibleAnswers, correctAnswer){
-    var question = {
-        prompt: prompt,
-        randomize: randomize,
-        possibleAnswers: possibleAnswers,
-        correctAnswer: correctAnswer
-    }
+// function buildQuestion(prompt, randomize, possibleAnswers, correctAnswer){
+//     var question = {
+//         prompt: prompt,
+//         randomize: randomize,
+//         possibleAnswers: possibleAnswers,
+//         correctAnswer: correctAnswer
+//     }
     
-    return question
+//     return question
+// }
+
+var header = document.querySelector("h1")
+var startBtn = document.getElementById("start-quiz")
+var startPage = document.getElementById("start-page")
+var body = document.body
+
+var questionCount = 1
+
+// Pseudocode
+
+//user clicks start button/restart button
+    //a random question is pulled from storage
+    //it is sent to the DOM
+    //the timer is started
+
+//user clicks answer option
+    //if the answer is correct
+        //remove old question
+        //if it is the last question
+            //prompt user for initials if a high score is set
+            //show end game screen
+        //else
+            //add new question
+    //else 
+        //deduct time from the timer
+        //inform user that the answer is wrong
+
+function startGame(){
+    console.log("Game started")
+    startPage.style.display = "none"
+    header.innerText = ""
+    //build the question
+    var question = "Which of the following is not a primitive data type in JS?"
+    var options = ["boolean", "float", "symbol", "undefined"]
+    buildQuestion(question, options)
 }
 
-//use live server to do fun storage stuff
-// localStorage.clear()
+function buildQuestion(question, answers){
+    var questionDiv = document.createElement("div")
+    questionDiv.className = "question-container"
+    body.appendChild(questionDiv)
 
+    var parent = document.querySelector(".question-container")
+
+    var questionCountLabel = document.createElement("h3")
+    questionCountLabel.innerHTML = "Question <span>1</span>/10"
+    questionCountLabel.id = "question-count"
+    parent.appendChild(questionCountLabel)
+
+    var questionLabel = document.createElement("h4")
+    questionLabel.innerText = question
+    questionLabel.id = "question"
+    parent.appendChild(questionLabel)
+
+    var answerOptions = document.createElement("ol")
+    answerOptions.id = "answers"
+    parent.appendChild(answerOptions)
+
+    addAnswer(answers[0], "one")
+    addAnswer(answers[1], "two")
+    addAnswer(answers[2], "three")
+    addAnswer(answers[3], "four")
+
+}
+
+function addAnswer(answer, answerClass){
+    var parent = document.querySelector("ol")
+
+    var answerOption = document.createElement("li")
+    answerOption.innerText = answer
+    answerOption.className = answerClass
+    parent.appendChild(answerOption)
+}
+    
+
+
+startBtn.addEventListener("click", startGame)
 //sample questions for the quiz
 
 // structure: could be an object storing both prompt and array
