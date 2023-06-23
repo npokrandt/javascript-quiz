@@ -10,11 +10,28 @@ h1 {
     font-size: 310%;
 }
 
+h3 {
+    font-size: 200%;
+}
+
+h4 {
+    font-size: 150%;
+    margin: 25px 0;
+}
+
 a {
     position: absolute;
-    top: 0px;
+    top: -130px;
     left: 20px;
 }
+
+li {
+    margin: 5px;
+    font-size: 110%;
+    cursor: pointer;
+}
+
+
 .container {
     display: flex;
     justify-content: center;
@@ -24,10 +41,34 @@ a {
     text-align: center;
 }
 
+.question-container{
+    width: 50%;
+    margin: 150px auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.one::before {
+    content: "A.  ";
+}
+
+.two::before {
+    content: "B.  ";
+}
+
+.three::before {
+    content: "C.  ";
+}
+
+.four::before {
+    content: "D.  ";
+}
 #timer {
     font-size: 150%;
     position: absolute;
-    top: 0px;
+    top: -130px;
     right: 20px;
 }
 
@@ -36,6 +77,7 @@ a {
     width: 50%;
     margin: auto;
     border: 3px solid black;
+    padding: 10px 10px 25px;
 }
 
 #instructionsLabel {
@@ -52,8 +94,12 @@ a {
     display: none;
 }
 
+#question {
+    display: inline;
+}
+
 #start-quiz {
-    margin-top: 150px;
+    margin-top: 100px;
     font-size: 200%;
     padding: 15px;
 }

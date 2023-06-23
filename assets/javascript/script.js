@@ -35,7 +35,7 @@ function buildQuestion(prompt, randomize, possibleAnswers, correctAnswer){
 // structure: could be an object storing both prompt and array
 // will be several of these to choose from at random
 
-//which of the following is not a primitive data type in JS?
+//Which of the following is not a primitive data type in JS?
     //boolean
     //symbol
     //float
