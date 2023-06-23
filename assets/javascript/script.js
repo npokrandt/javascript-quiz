@@ -1,3 +1,17 @@
+//the criteria
+
+// GIVEN I am taking a code quiz - yay
+// WHEN I click the start button - does nothing yet
+// THEN a timer starts and I am presented with a question - don't even have a timer
+// WHEN I answer a question - not there yet
+// THEN I am presented with another question
+// WHEN I answer a question incorrectly
+// THEN time is subtracted from the clock
+// WHEN all questions are answered or the timer reaches 0
+// THEN the game is over
+// WHEN the game is over
+// THEN I can save my initials and my score
+
 //alert("test")
   
 // localStorage.setItem("questions", JSON.stringify([]))
@@ -80,17 +94,3 @@ function buildQuestion(prompt, randomize, possibleAnswers, correctAnswer){
     //user_name
     //1User
     //name
-
-//the criteria
-
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and my score

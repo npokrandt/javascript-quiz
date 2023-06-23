@@ -1,9 +1,73 @@
 body {
+    position: relative;
     font-size: 16px;
     font-family: sans-serif;
-    /* background-color: lightgreen; */
+    background-color: lightpink;
 }
 
 h1 {
-    font-size: 330%;
+    margin: 15px 0;
+    font-size: 310%;
+}
+
+a {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.centered{
+    text-align: center;
+}
+
+#timer {
+    font-size: 150%;
+    position: absolute;
+    top: 0px;
+    right: 20px;
+}
+
+#instructionsDiv {
+    background-color: salmon;
+    width: 50%;
+    margin: auto;
+    border: 3px solid black;
+}
+
+#instructionsLabel {
+    font-size: 175%;
+    font-weight: bold;
+    margin: 30px;
+}
+
+#instructions {
+    padding: 0 10px;
+}
+
+#quiz-over{
+    display: none;
+}
+
+#start-quiz {
+    margin-top: 150px;
+    font-size: 200%;
+    padding: 15px;
+}
+
+#score{
+    display: none;
+}
+
+/* for the high score page */
+
+#reset-scores {
+    position: absolute;
+    color: red;
+    bottom: -450px;
+    font-size: 150%;
+    padding: 15px;
 }

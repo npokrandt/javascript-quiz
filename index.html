@@ -9,13 +9,20 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head> 
 <body>
-    <h1>Welcome to the JavaScript Quiz!</h1>
+    <h1 class="centered">Welcome to the JavaScript Quiz!</h1>
     <a href="high-scores.html">see high scores</a>
-    <p>Time left: <span>90</span></p>
-    <p>Instructions</p>
-    <p>quiz over</p>
-    <p>score: 20</p>
-    <button type="button">Start Quiz!</button>
+    <p id="timer">Time left: <span>90</span></p>
+    <div id="instructionsDiv">
+        <p class="centered" id="instructionsLabel">Instructions: </p>
+        <p class="centered" id="instructions">These are the instructions for the quiz. They say how it works and the score and everything. You can save high scores!
+        </p>
+    </div>
+    <p class="centered"id="quiz-over">quiz over</p>
+    <p class="centered" id="score">score: 20</p>
+    <div class="container">
+        <button type="button" id="start-quiz">Start Quiz!</button>
+    </div>
+
 
     <script src="assets/javascript/script.js"></script>
 </body>
