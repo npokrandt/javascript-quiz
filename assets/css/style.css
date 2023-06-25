@@ -28,6 +28,10 @@ a {
 li {
     margin: 5px;
     font-size: 110%;
+}
+
+li:hover {
+    color: blue;
     cursor: pointer;
 }
 
