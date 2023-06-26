@@ -95,10 +95,6 @@ li:hover {
     padding: 0 10px;
 }
 
-#quiz-over{
-    display: none;
-}
-
 #question {
     display: inline;
 }
@@ -109,9 +105,16 @@ li:hover {
     padding: 15px;
 }
 
-#score{
+#end-game{
     display: none;
 }
+/* #quiz-over{
+    display: none;
+} */
+
+/* #score{
+    display: none;
+} */
 
 /* for the high score page */
 
