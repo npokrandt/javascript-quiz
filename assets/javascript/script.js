@@ -4,11 +4,11 @@
 // WHEN I click the start button 
 // THEN a timer starts and I am presented with a question - check
 // WHEN I answer a question 
-// THEN I am presented with another question - coming soon
+// THEN I am presented with another question - check
 // WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock - pending
+// THEN time is subtracted from the clock - check
 // WHEN all questions are answered or the timer reaches 0
-// THEN the game is over - pending
+// THEN the game is over - check
 // WHEN the game is over
 // THEN I can save my initials and my score - pending
 
@@ -118,11 +118,12 @@
     var timerEl = document.getElementById("time-remaining")
     var array = JSON.parse(localStorage.getItem("questions"))
     
-    var secondsLeft = 90
+    var secondsLeft = 45
     var timer
     
-    var questionCount = 1
+    var questionCount = 10
     
+    //localStorage.setItem("highScores", JSON.stringify(highScoreArray))
     // Pseudocode 
     
     //user clicks start button/restart button
@@ -187,6 +188,7 @@ function tick(){
     //console.log(secondsLeft)
     if (secondsLeft === 0){
         clearInterval(timer)
+        endGame()
     }
 }
 
@@ -202,13 +204,37 @@ function submitAnswer(event){
             }
         } else {
             secondsLeft-=5
+            timerEl.innerText = secondsLeft
+            //maybe make it flash red
         }
     }
     
 }
 
 function endGame(){
+    var score = document.getElementById("score-span")
+    var quizEndMessage = document.getElementById("quiz-over")
+    score.innerText = secondsLeft
+    if (secondsLeft == 0){
+        console.log("you lose!")
+        quizEndMessage.innerText = "You lose! Better luck next time!"
+        //you lose
+    } else {
+        quizEndMessage.innerText = "You win! Congratulations!"
+        //you win! Add high score
+        var highScoreInitials = prompt("You set a new high score! Enter your intials below: ", "Your intials here")
+        var highScoreObject = {
+            name: highScoreInitials,
+            score: secondsLeft
+        }
+        var highScoreArray = JSON.parse(localStorage.getItem("highScores"))
+        highScoreArray.push(highScoreObject)
+        localStorage.setItem("highScores", JSON.stringify(highScoreArray))
+        console.log(highScoreArray)
+    }
     clearInterval(timer)
+    secondsLeft = 90
+    timerEl.innerText = secondsLeft
     questionContainer.style.display = "none"
     endPage.style.display = "block"
 }
