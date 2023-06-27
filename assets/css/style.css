@@ -25,17 +25,27 @@ a {
     left: 20px;
 }
 
-li {
+ol li {
     margin: 5px;
     font-size: 110%;
 }
 
-li:hover {
+ol li:hover {
     color: blue;
     cursor: pointer;
 }
 
+ul {
+    position: relative;
+    margin-top: 50px;
+}
 
+ul li {
+    margin: 5px;
+    text-align: center;
+    font-size: 130%;
+    font-weight: bold;
+}
 .container {
     display: flex;
     justify-content: center;
@@ -113,16 +123,26 @@ li:hover {
     display: none;
 }
 
-/* #score{
-    display: none;
-} */
+#quiz-over {
+    font-size: 200%;
+    margin-bottom: 50px;
+}
+
+#score{
+    font-size: 140%;
+    margin: 20px 0 0;
+}
 
 /* for the high score page */
 
 #reset-scores {
     position: absolute;
     color: red;
-    bottom: -450px;
+    bottom: 0px;
     font-size: 150%;
     padding: 15px;
+}
+
+#high-score-div {
+    height: 300px;
 }

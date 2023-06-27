@@ -218,11 +218,13 @@ function endGame(){
     if (secondsLeft == 0){
         console.log("you lose!")
         quizEndMessage.innerText = "You lose! Better luck next time!"
+        quizEndMessage.style.color = "red"
         //you lose
     } else {
         quizEndMessage.innerText = "You win! Congratulations!"
+        quizEndMessage.style.color = "green"
         //you win! Add high score
-        var highScoreInitials = prompt("You set a new high score! Enter your intials below: ", "Your intials here")
+        var highScoreInitials = prompt("You set a new high score! Enter your intials below: ", "JDD")
         var highScoreObject = {
             name: highScoreInitials,
             score: secondsLeft
@@ -230,7 +232,7 @@ function endGame(){
         var highScoreArray = JSON.parse(localStorage.getItem("highScores"))
         highScoreArray.push(highScoreObject)
         localStorage.setItem("highScores", JSON.stringify(highScoreArray))
-        console.log(highScoreArray)
+        console.log(highScoreArray) 
     }
     clearInterval(timer)
     secondsLeft = 90
