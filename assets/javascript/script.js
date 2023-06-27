@@ -1,16 +1,3 @@
-//the criteria
-
-// GIVEN I am taking a code quiz
-// WHEN I click the start button 
-// THEN a timer starts and I am presented with a question - check
-// WHEN I answer a question 
-// THEN I am presented with another question - check
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock - check
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over - check
-// WHEN the game is over
-// THEN I can save my initials and my score - pending
 
 // array.push(buildQuestion("How does the HTML file read the JS file?", false, ['<script>assets/js/script.js</script>', '<script href="assets/js/script.js"></script>', '<link href="assets/js/script.js"></script>', 'none of the above'], 'none of the above'))
 // array.push(buildQuestion("Which variable name would work in JS?", true, ['user-name', 'user_name', '1User', '!user'], 'user_name'))
@@ -111,6 +98,7 @@
     //main code starts here
     var header = document.querySelector("h1")
     var startBtn = document.getElementById("start-quiz")
+    var PlayAgainBtn = document.getElementById("restart-game-button")
     var startPage = document.getElementById("start-page")
     var questionContainer = document.getElementById("question-container")
     var endPage = document.getElementById("end-game")
@@ -118,10 +106,10 @@
     var timerEl = document.getElementById("time-remaining")
     var array = JSON.parse(localStorage.getItem("questions"))
     
-    var secondsLeft = 45
+    var secondsLeft = 90
     var timer
     
-    var questionCount = 10
+    var questionCount = 1
     
     //localStorage.setItem("highScores", JSON.stringify(highScoreArray))
     // Pseudocode 
@@ -186,8 +174,10 @@ function tick(){
     secondsLeft--
     timerEl.innerText = secondsLeft
     //console.log(secondsLeft)
-    if (secondsLeft === 0){
+    if (secondsLeft <= 0){
         clearInterval(timer)
+        timerEl.innerText = 0
+        secondsLeft = 0
         endGame()
     }
 }
@@ -215,7 +205,7 @@ function endGame(){
     var score = document.getElementById("score-span")
     var quizEndMessage = document.getElementById("quiz-over")
     score.innerText = secondsLeft
-    if (secondsLeft == 0){
+    if (secondsLeft === 0){
         console.log("you lose!")
         quizEndMessage.innerText = "You lose! Better luck next time!"
         quizEndMessage.style.color = "red"
@@ -241,8 +231,17 @@ function endGame(){
     endPage.style.display = "block"
 }
 
+function restartGame(){
+    endPage.style.display = "none"
+    questionContainer.style.display = "flex"
+    questionCount = 1
+    timer = setInterval(tick, 1000)
+    buildQuestion()
+}
+
 
 startBtn.addEventListener("click", startGame)
+PlayAgainBtn.addEventListener("click", restartGame)
 questionContainer.addEventListener("click", submitAnswer)
 //sample questions for the quiz
 
