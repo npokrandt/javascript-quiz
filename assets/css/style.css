@@ -45,6 +45,12 @@ li:hover {
     text-align: center;
 }
 
+.btn {
+    margin-top: 100px;
+    font-size: 200%;
+    padding: 15px;
+}
+
 .question-container{
     width: 50%;
     margin: 150px auto 0;
@@ -99,18 +105,13 @@ li:hover {
     display: inline;
 }
 
-#start-quiz {
-    margin-top: 100px;
-    font-size: 200%;
-    padding: 15px;
+#question-container{
+    display: none;
 }
 
 #end-game{
     display: none;
 }
-/* #quiz-over{
-    display: none;
-} */
 
 /* #score{
     display: none;

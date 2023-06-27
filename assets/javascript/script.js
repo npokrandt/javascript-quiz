@@ -113,6 +113,8 @@
     var startBtn = document.getElementById("start-quiz")
     var startPage = document.getElementById("start-page")
     var questionContainer = document.getElementById("question-container")
+    var endPage = document.getElementById("end-game")
+    var questionCountEl = document.getElementById("question-number")
     var timerEl = document.getElementById("time-remaining")
     var array = JSON.parse(localStorage.getItem("questions"))
     
@@ -143,6 +145,7 @@
 function startGame(){
     console.log("Game started")
     startPage.style.display = "none"
+    questionContainer.style.display = "flex"
     //hides the header without messing with the 
     header.innerText = "."
     header.style.color = "lightpink"
@@ -154,66 +157,28 @@ function startGame(){
             
 function buildQuestion(){
 
+    questionCountEl.innerText = questionCount
     //the question elements
     var question = JSON.parse(localStorage.getItem("questions"))
-    var questionPrompt = question[3].prompt
-    var options = question[3].possibleAnswers
-    var correctAnswer = question[3].correctAnswer
-                
-    var parent = questionContainer
-                
-    var questionCountLabel = document.createElement("h3")
-    questionCountLabel.innerHTML = "Question <span id='question-number'>1</span>/10"
-    questionCountLabel.id = "question-count"
-    parent.appendChild(questionCountLabel)
+    var questionPrompt = question[questionCount - 1].prompt
+    var options = question[questionCount - 1].possibleAnswers
+    var correctAnswer = question[questionCount - 1].correctAnswer
+      
+    var questionPromptEl = document.getElementById("question")
     
-    var questionLabel = document.createElement("h4")
-    questionLabel.innerText = questionPrompt
-    questionLabel.id = "question"
-    parent.appendChild(questionLabel)
-    
-    var answerOptions = document.createElement("ol")
-    answerOptions.id = "answers"
-    parent.appendChild(answerOptions)
+    questionPromptEl.innerText = questionPrompt
 
     for (var i = 0; i < 4; i++){
-        var className
-        var isCorrect = false
-        switch (i) {
-            case 0:
-                className = "one"
-                break;
-            case 1:
-                className = "two"
-                break;  
-            case 2:
-                className = "three"
-                break; 
-            case 3:
-                className = "four"
-                break;          
-        }
-            
+        var listItem = document.getElementById(JSON.stringify(i + 1))
+           
+        listItem.innerText = options[i]
         if (options[i] === correctAnswer){
-            isCorrect = true
+            listItem.setAttribute("data-correct", "true")
+        } else {
+            listItem.setAttribute("data-correct", "false")
         }
-        addAnswer(options[i], className, isCorrect)
     }
-    
-    // addAnswer(answers[1], "two")
-    // addAnswer(answers[2], "three")
-    // addAnswer(answers[3], "four")
-    
-}
-
-function addAnswer(answer, answerClass, correctness){
-    var parent = document.querySelector("ol")
-    
-    var answerOption = document.createElement("li")
-    answerOption.innerText = answer
-    answerOption.className = answerClass
-    answerOption.setAttribute("data-correct", correctness);
-    parent.appendChild(answerOption)
+    questionCount++
 }
 
 function tick(){
@@ -229,8 +194,23 @@ function submitAnswer(event){
     if(event.target.matches("li")){
         var answer = event.target.getAttribute("data-correct")
         console.log(answer)
+        if (answer === "true"){
+            if (questionCount === 11){
+                endGame()
+            } else {
+                buildQuestion()
+            }
+        } else {
+            secondsLeft-=5
+        }
     }
     
+}
+
+function endGame(){
+    clearInterval(timer)
+    questionContainer.style.display = "none"
+    endPage.style.display = "block"
 }
 
 

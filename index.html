@@ -20,25 +20,25 @@
             </p>
         </div>
         <div class="container">
-            <button type="button" id="start-quiz">Start Quiz!</button>
+            <button type="button" class="btn" id="start-quiz">Start Quiz!</button>
         </div>
     </div>
     <div id="question-container" class="question-container">
-        <!-- <h3 id="question-count">Question <span>1</span>/10</h3>
-        <h4 id="question">Which of the following is not a primitive data type in JS?</h4>
+        <h3 id="question-count">Question <span id="question-number">1</span>/10</h3>
+        <h4 id="question"></h4>
         <ol id="answers">
-            <li class="one">boolean</li>
-            <li class="two">symbol</li>
-            <li class="three">float</li>
-            <li class="four">undefined</li>
-        </ol> -->
+            <li class="one" id="1" data-correct="false"></li>
+            <li class="two" id="2" data-correct="false"></li>
+            <li class="three" id="3" data-correct="false"></li>
+            <li class="four" id="4" data-correct="false"></li>
+        </ol>
     </div>
     <div id="end-game">
         <p class="centered"id="quiz-over">quiz over</p>
         <p class="centered" id="score">score: 20</p>
-        <!-- <div class="container">
-            <button type="button" id="start-quiz">Start Quiz!</button>
-        </div> -->
+        <div class="container">
+            <button type="button" class="btn" id="end-game-button">Play Again?</button>
+        </div>
     </div>
 
 
