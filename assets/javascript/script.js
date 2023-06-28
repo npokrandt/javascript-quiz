@@ -28,6 +28,12 @@ if (array == null){
     console.log("quiz already exists")
 }
 
+var highScoreArray = JSON.parse(localStorage.getItem("highScores"))
+if (highScoreArray == null){
+    highScoreArray = []
+    localStorage.setItem("highScores", JSON.stringify(highScoreArray))
+}
+
 function buildQuizQuestion(prompt, randomize, possibleAnswers, correctAnswer){
     var question = {
         prompt: prompt,
@@ -147,10 +153,6 @@ function endGame(){
             score: secondsLeft
         }
         var highScoreArray = JSON.parse(localStorage.getItem("highScores"))
-        if (highScoreArray === null){
-            highScoreArray = []
-            localStorage.setItem("highScores", JSON.stringify(highScoreArray))
-        }
         highScoreArray.push(highScoreObject)
         localStorage.setItem("highScores", JSON.stringify(highScoreArray))
         console.log(highScoreArray) 
