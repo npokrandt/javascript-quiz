@@ -1,141 +1,68 @@
 
-// array.push(buildQuestion("How does the HTML file read the JS file?", false, ['<script>assets/js/script.js</script>', '<script href="assets/js/script.js"></script>', '<link href="assets/js/script.js"></script>', 'none of the above'], 'none of the above'))
-// array.push(buildQuestion("Which variable name would work in JS?", true, ['user-name', 'user_name', '1User', '!user'], 'user_name'))
-// array.push(buildQuestion("What can be stored in arrays?", false, ['strings', 'null', 'other arrays', 'all of the above'], 'all of the above'))
-// array.push(buildQuestion("Which of the following is the AND operator?", true, ['||', '@@', '&&', '??'], '&&'))   
-// array.push(buildQuestion("Which is not a method of Math?", true, ['random()', 'ceiling()', 'abs()', 'hypot()'], 'ceiling()'))
+//adds the quiz to local storage if it isn't already there
+var array = JSON.parse(localStorage.getItem("questions"))
+if (array == null){
+    array = []
+    array.push(buildQuizQuestion("Which of the following is not a primitive data type in JS?", true, ['boolean', 'float', 'symbol', 'undefined'], 'float'))
+    
+    array.push(buildQuizQuestion("Which of the following isn't a keyword to declare a variable?", true, ['let', 'init', 'var', 'const'], 'init'))
+    
+    array.push(buildQuizQuestion("Which of the following is not a correct statement in a for loop in JS?", true, ['int i = 0;', 'i <= 17;', 'i+=7;', 'i--'], 'int i = 0;'))
+    
+    array.push(buildQuizQuestion("What property allows you to get the number of elements in an array?", true, ['amount', 'size', 'length', 'includes'], 'length'))
 
-// function buildQuestion(prompt, randomize, possibleAnswers, correctAnswer){
-//     var question = {
-//         prompt: prompt,
-//         randomize: randomize,
-//         possibleAnswers: possibleAnswers,
-//         correctAnswer: correctAnswer
-//     }
+   array.push(buildQuizQuestion("What can an object take as values?", false, ['strings', 'arrays', 'other objects', 'all of the above'], 'all of the above'))
+   
+   array.push(buildQuizQuestion("How does the HTML file read the JS file?", false, ['<script>assets/js/script.js</script>', '<script href="assets/js/script.js"></script>', '<link href="assets/js/script.js"></script>', 'none of the above'], 'none of the above'))
+   
+   array.push(buildQuizQuestion("What can be stored in arrays?", false, ['strings', 'null', 'other arrays', 'all of the above'], 'all of the above'))
+     
+   array.push(buildQuizQuestion("Which is not a method of Math?", true, ['random()', 'ceiling()', 'abs()', 'hypot()'], 'ceiling()'))
 
-//     return question
-// }
-// Which of the following is not a primitive data type in JS?
-// boolean
-// symbol
-// float
-// undefined
+   array.push(buildQuizQuestion("What is the AND operator in JS??", true, ['||', '&&', '@@', '??'], '&&'))
 
-//which of the following isn't a keyword to declare a variable?
-//let
-//init
-//var
-//const
+   array.push(buildQuizQuestion("Which variable name would work in JS?", true, ['user-name', 'user_name', '1User', '!user'], 'user_name'))
 
-//which of the following is not a correct statement in a for loop in JS?
-//int i = 0;
-//i <= 17;
-//i+=7;
-//i--
+   localStorage.setItem("questions", JSON.stringify(array))
+} else {
+    console.log("quiz already exists")
+}
 
-//what property allows you to get the number of elements in an array?
-//amount
-//size
-//length
-//includes
+function buildQuizQuestion(prompt, randomize, possibleAnswers, correctAnswer){
+    var question = {
+        prompt: prompt,
+        randomize: randomize,
+        possibleAnswers: possibleAnswers,
+        correctAnswer: correctAnswer
+    }
 
-//what can an object take as values?
-    //strings
-    //arrays
-    //other objects
-    //all of the above
+    return question
+}
     
-//how does the HTML file read the JS file?
-    //<script>assets/js/script.js</script>
-    //<script href="assets/js/script.js"></script>
-    //<link href="assets/js/script.js"></script>
-    //none of the above
-
+//global variables
+var header = document.querySelector("h1")
+var startBtn = document.getElementById("start-quiz")
+var PlayAgainBtn = document.getElementById("restart-game-button")
+var startPage = document.getElementById("start-page")
+var highScoresLink = document.getElementById("high-scores-link")
+var questionContainer = document.getElementById("question-container")
+var endPage = document.getElementById("end-game")
+var questionCountEl = document.getElementById("question-number")
+var timerEl = document.getElementById("time-remaining")
+var array = JSON.parse(localStorage.getItem("questions"))
     
-    //What can be stored in arrays?
-    //strings
-    //null
-    //other arrays
-    //all of the above
-
+var secondsLeft = 90
+var timer
     
-    //which is not a method of Math?
-    //random()
-    //ceiling()
-    //abs()
-    //hypot()
-
-    
-    //which of the following is the AND operator?
-    //||
-    //&&
-    //@@
-    //??
-    
-    
-    //which variable name would work in JS?
-    //user-name
-    //user_name
-    //1User
-    //!user
-    
-    
-    //console.log(array.length)
-    
-    //array.pop()
-    
-    
-    //console.log(array[4])
-    
-    // if (array === null){
-        //     console.log("the array has not been added yet")
-// } else {
-    //     console.log("array already exists")
-    // }
-    
-    //localStorage.setItem("questions", JSON.stringify(array))
-    
-    //main code starts here
-    var header = document.querySelector("h1")
-    var startBtn = document.getElementById("start-quiz")
-    var PlayAgainBtn = document.getElementById("restart-game-button")
-    var startPage = document.getElementById("start-page")
-    var questionContainer = document.getElementById("question-container")
-    var endPage = document.getElementById("end-game")
-    var questionCountEl = document.getElementById("question-number")
-    var timerEl = document.getElementById("time-remaining")
-    var array = JSON.parse(localStorage.getItem("questions"))
-    
-    var secondsLeft = 90
-    var timer
-    
-    var questionCount = 1
-    
-    //localStorage.setItem("highScores", JSON.stringify(highScoreArray))
-    // Pseudocode 
-    
-    //user clicks start button/restart button
-    //a random question is pulled from storage
-    //it is sent to the DOM
-    //the timer is started
-    
-    //user clicks answer option
-    //if the answer is correct
-    //remove old question
-        //if it is the last question
-            //prompt user for initials if a high score is set
-            //show end game screen
-            //else
-            //add new question
-            //else 
-            //deduct time from the timer
-            //inform user that the answer is wrong
+var questionCount = 1
             
+//functions of the quiz
 function startGame(){
     console.log("Game started")
     startPage.style.display = "none"
+    highScoresLink.style.display = "none"
     questionContainer.style.display = "flex"
-    //hides the header without messing with the 
+    //hides the header without messing with the positioning
     header.innerText = "."
     header.style.color = "lightpink"
     header.style.cursor = "default"
@@ -173,7 +100,6 @@ function buildQuestion(){
 function tick(){
     secondsLeft--
     timerEl.innerText = secondsLeft
-    //console.log(secondsLeft)
     if (secondsLeft <= 0){
         clearInterval(timer)
         timerEl.innerText = 0
@@ -185,7 +111,6 @@ function tick(){
 function submitAnswer(event){
     if(event.target.matches("li")){
         var answer = event.target.getAttribute("data-correct")
-        console.log(answer)
         if (answer === "true"){
             if (questionCount === 11){
                 endGame()
@@ -195,13 +120,15 @@ function submitAnswer(event){
         } else {
             secondsLeft-=5
             timerEl.innerText = secondsLeft
-            //maybe make it flash red
         }
     }
     
 }
 
 function endGame(){
+    questionContainer.style.display = "none"
+    endPage.style.display = "block"
+    highScoresLink.style.display = "inline"
     var score = document.getElementById("score-span")
     var quizEndMessage = document.getElementById("quiz-over")
     score.innerText = secondsLeft
@@ -227,24 +154,19 @@ function endGame(){
     clearInterval(timer)
     secondsLeft = 90
     timerEl.innerText = secondsLeft
-    questionContainer.style.display = "none"
-    endPage.style.display = "block"
 }
 
 function restartGame(){
     endPage.style.display = "none"
+    highScoresLink.style.display = "none"
     questionContainer.style.display = "flex"
     questionCount = 1
     timer = setInterval(tick, 1000)
     buildQuestion()
 }
 
-
+//event listeners
 startBtn.addEventListener("click", startGame)
 PlayAgainBtn.addEventListener("click", restartGame)
 questionContainer.addEventListener("click", submitAnswer)
-//sample questions for the quiz
-
-// structure: could be an object storing both prompt and array
-// will be several of these to choose from at random
 

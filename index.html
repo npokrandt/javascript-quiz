@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
+    <!--metadata-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,11 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head> 
 <body>
-    <!--Welcome to the JavaScript Quiz!-->
+    <!--Elements outside the pages-->
     <h1 class="centered">Welcome to the JavaScript Quiz!</h1>
-    <a href="high-scores.html">see high scores</a>
+    <a href="high-scores.html" id="high-scores-link">see high scores</a>
     <p id="timer">Time left: <span id="time-remaining">90</span></p>
+    <!--start page-->
     <div id="start-page">
         <div id="instructionsDiv">
             <p class="centered" id="instructionsLabel">Instructions: </p>
@@ -23,6 +25,7 @@
             <button type="button" class="btn" id="start-quiz">Start Quiz!</button>
         </div>
     </div>
+    <!--quiz page-->
     <div id="question-container" class="question-container">
         <h3 id="question-count">Question <span id="question-number">1</span>/10</h3>
         <h4 id="question"></h4>
@@ -33,6 +36,7 @@
             <li class="four" id="4" data-correct="false"></li>
         </ol>
     </div>
+    <!--end page-->
     <div id="end-game">
         <p class="centered"id="quiz-over">quiz over</p>
         <p class="centered" id="score">score: <span id="score-span">20</span></p>

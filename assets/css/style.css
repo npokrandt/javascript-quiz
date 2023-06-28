@@ -1,3 +1,5 @@
+
+/* element selectors */
 body {
     position: relative;
     font-size: 16px;
@@ -25,6 +27,7 @@ a {
     left: 20px;
 }
 
+/* distinctions between quiz answers and the high score list*/
 ol li {
     margin: 5px;
     font-size: 110%;
@@ -46,6 +49,8 @@ ul li {
     font-size: 130%;
     font-weight: bold;
 }
+
+/* class selectors */
 .container {
     display: flex;
     justify-content: center;
@@ -86,6 +91,7 @@ ul li {
     content: "D.  ";
 }
 
+/* id selectors */
 #timer {
     font-size: 150%;
     position: absolute;

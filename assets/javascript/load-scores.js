@@ -1,10 +1,11 @@
 
-
+// JS for the high score page
 var highScoreList = document.getElementById("high-score-list")
 var resetBtn = document.getElementById("reset-scores")
 
 var highScores = JSON.parse(localStorage.getItem("highScores"))
 
+//create the high score list
 for (var i = 0; i < highScores.length; i++){
     addHighScore(highScores[i])
 }
@@ -31,5 +32,7 @@ function resetScores(){
         });
     }
 }
+
+// event listener
 resetBtn.addEventListener("click", resetScores)
 
