@@ -8,8 +8,8 @@ Welcome to my JavaScript quiz! Upon reaching the page you will be presented with
 
 ![start page](/assets/images/Screenshot%202023-06-27%20at%2023-46-30%20JavaScript%20Quiz.png)
 ![quiz page](/assets/images/Screenshot%202023-06-27%20at%2023-48-28%20JavaScript%20Quiz.png)
-![end page](/assets/images/Screenshot%202023-06-27%20at%2023-53-09%20JavaScript%20Quiz.png)
-![high score page](/assets/images/Screenshot%202023-06-27%20at%2023-53-18%20High%20scores.png)
+![end page](/assets/images/Screenshot%202023-06-27%20at%2023-57-16%20JavaScript%20Quiz.png)
+![high score page](/assets/images/Screenshot%202023-06-27%20at%2023-57-24%20High%20scores.png)
 
 ## Link to site
 
