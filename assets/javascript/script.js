@@ -147,6 +147,10 @@ function endGame(){
             score: secondsLeft
         }
         var highScoreArray = JSON.parse(localStorage.getItem("highScores"))
+        if (highScoreArray === null){
+            highScoreArray = []
+            localStorage.setItem("highScores", JSON.stringify(highScoreArray))
+        }
         highScoreArray.push(highScoreObject)
         localStorage.setItem("highScores", JSON.stringify(highScoreArray))
         console.log(highScoreArray) 
