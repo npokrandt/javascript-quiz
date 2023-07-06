@@ -126,6 +126,11 @@ function submitAnswer(event){
         } else {
             secondsLeft-=5
             timerEl.innerText = secondsLeft
+            if (questionCount === 11){
+                endGame()
+            } else {
+                buildQuestion()
+            }
         }
     }
     
